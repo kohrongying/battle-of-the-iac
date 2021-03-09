@@ -1,0 +1,6 @@
+*.pyc
+__pycache__/
+venv/
+iac/terraform/.terraform/
+iac/terraform/builds/
+.idea/
