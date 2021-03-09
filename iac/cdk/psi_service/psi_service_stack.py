@@ -10,16 +10,11 @@ class PSIServiceStack(core.Stack):
         SERVICE_NAME = "sg-psi-bot"
 
         handler = lambda_.Function(self, f'{SERVICE_NAME}-lambda',
-                    runtime=lambda_.Runtime.PYTHON_3_8,
-                    code=lambda_.Code.from_asset("resources"),
-                    handler="lambda_function.lambda_handler"
+          runtime=lambda_.Runtime.PYTHON_3_8,
+          code=lambda_.Code.from_asset("resources"),
+          handler="lambda_function.lambda_handler"
         )
 
-#         api = apigateway.LambdaRestApi(self, f"{SERVICE_NAME}-api", {
-#           handler: handler
-#         })
-
-#         lambda_integration = apigateway.LambdaIntegration(handler,
-#                 request_templates={"application/json": '{ "statusCode": "200" }'})
-#
-#         api.root.add_method("ANY", lambda_integration)
+        api = apigateway.LambdaRestApi(self, f"{SERVICE_NAME}-api",
+          handler=handler
+        )

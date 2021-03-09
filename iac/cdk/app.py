@@ -10,7 +10,7 @@ from psi_service.psi_service_stack import PSIServiceStack
 
 app = core.App()
 PSIServiceStack(app,
-  "psi-service-cdk-1",
+  "psi-service-cdk",
   env={'region': 'ap-southeast-1'}
 )
 
